@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Story - Uyen & Antonio</title>
+    <title>RSVP - Uyen & Antonio</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -16,6 +16,7 @@
                 <li><a href="story.html">Our Story</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="details.html">Details</a></li>
+                <li><a href="menu.html">Menu</a></li>
                 <li><a href="rsvp.html" class="active">RSVP</a></li>
                 <li><a href="registry.html">Registry</a></li>
             </ul>
@@ -28,11 +29,19 @@
   
 
   <!-- RSVP Form -->
-  <form id="rsvp-form" class="rsvp-form">
-    
+  <!-- data-netlify="true" registers this form with Netlify Forms at deploy time.
+       action points to a fallback thank-you page if JS doesn't run.
+       The hidden "bot-field" is Netlify's honeypot spam filter. -->
+  <form id="rsvp-form" class="rsvp-form" name="rsvp" method="POST"
+        data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html">
+    <input type="hidden" name="form-name" value="rsvp">
+    <p style="display:none;">
+      <label>Don't fill this out if you're human: <input name="bot-field"></label>
+    </p>
+
     <!-- Pre-filled from token -->
     <div class="form-group">
-      <label for="name">Name(s)</label>
+      <label for="name">Name</label>
       <input type="text" id="name" name="name">
     </div>
 
@@ -48,7 +57,7 @@
       </div>
     </div>
 
-    <!-- Plus One Count (if applicable) -->
+    <!-- Plus One Count (if applicable) 
     <div class="form-group" id="plus-one-section">
       <label for="plus-one">Number of Guests (including you)</label>
       <select id="plus-one" name="plus-one">
@@ -56,20 +65,20 @@
         <option value="2">2</option>
       </select>
     </div>
-
+-->
     <!-- Email -->
     <div class="form-group">
       <label for="email">Email (for confirmation)</label>
       <input type="email" id="email" name="email" required>
     </div>
 
-    <!-- Dietary Restrictions -->
+    <!-- Dietary Restrictions 
     <div class="form-group">
       <label for="dietary">Dietary Restrictions (optional)</label>
       <textarea id="dietary" name="dietary" 
                 placeholder="Vegetarian, allergies, etc."></textarea>
     </div>
-
+-->
     <!-- Message to Couple -->
     <div class="form-group">
       <label for="message">Message to the Couple (optional)</label>
@@ -81,8 +90,15 @@
     <button type="submit" class="submit-button">Submit RSVP</button>
   </form>
 
-  
+  <!-- Success message shown after submitting -->
+  <div id="rsvp-success" class="rsvp-success" hidden>
+    <span class="rsvp-success-icon">💌</span>
+    <p>Thank you! Your RSVP has been received. We can’t wait to see you!</p>
+  </div>
 </section>
+
+<!-- Toast pop-up notification -->
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
 <!-- Footer -->
     <footer class="footer">
         <p>With Love, Uyen & Antonio | 2026</p>
