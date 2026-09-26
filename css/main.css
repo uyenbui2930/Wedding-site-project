@@ -274,6 +274,20 @@ a {
     font-family: var(--font-primary);
 }
 
+/* Adults-only notice (home, details, RSVP) — soft note between hairlines */
+.adults-only-note {
+    max-width: 480px;
+    margin: 0 auto var(--spacing-md);
+    padding: 1rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    font-style: italic;
+    font-family: var(--font-primary);
+}
+
 /* Story Narrative Container*/
 .story-narrative {
     display: flex;
@@ -399,6 +413,27 @@ a {
     padding: 2.5rem;
     box-shadow: var(--shadow-sm); /* Subtler shadow */
     text-align: center;
+}
+
+/* Registry cards stay card-sized and centered, even when only one is shown */
+.registry-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 420px));
+    justify-content: center;
+}
+
+.registry-qr {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    margin: 0 auto 1.25rem;
+}
+
+.registry-zelle-logo {
+    display: block;
+    width: 90px;
+    height: auto;
+    margin: 0 auto;
 }
 
 .block-icon, .icon {
